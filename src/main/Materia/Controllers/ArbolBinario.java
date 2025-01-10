@@ -6,6 +6,9 @@ public class ArbolBinario {
 
     private Node root;
 
+    
+    
+    
     public void insert(int value){
         root = insert(root, value);
     }
@@ -48,7 +51,6 @@ public class ArbolBinario {
     }
 
     public Node getRoot(){
-
-        return null;
+        return root;
     }
 }
