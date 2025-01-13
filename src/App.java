@@ -1,36 +1,42 @@
 import main.Ejercicio_03_ListLeves.ListLevels;
+import main.Materia.Controllers.ArbolAVL;
 import main.Materia.Controllers.ArbolBinario;
 import main.Materia.Controllers.ArbolBinarioRecorrido;
 import main.Materia.Models.Node;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        // ArbolBinario arbolBinario = new ArbolBinario();
-        // int[]valores = {40, 20, 60, 10, 30, 50, 70, 5, 15, 55};
+        // runEjercicio3();
+        runArbolAVL();
+        // runArbol();
 
-        // //ingresar cada valor al arbol
-        // for (int i : valores) {
-        //     arbolBinario.insert(i);
-        // }
+    }
 
-        // arbolBinario.printTree(); 
+    public static void runArbol(){
+        ArbolBinario arbolBinario = new ArbolBinario();
+        int[]valores = {40, 20, 60, 10, 30, 50, 70, 5, 15, 55};
 
-        // Node root = arbolBinario.getRoot();
+        //ingresar cada valor al arbol
+        for (int i : valores) {
+            arbolBinario.insert(i);
+        }
 
-        // ArbolBinarioRecorrido arbolBinarioRecorrido = new ArbolBinarioRecorrido();
-        // System.out.println("PreOrder Iterativo");
-        // arbolBinarioRecorrido.preOrderIterativo(root);
+        arbolBinario.printTree(); 
 
-        // System.out.println("\nPreOrderRecursivo");
-        // arbolBinarioRecorrido.preOrderRecursivo(root);
+        Node root = arbolBinario.getRoot();
 
-        // System.out.println("\nPosOrder");
-        // arbolBinarioRecorrido.posOrderRecursivo(root);
+        ArbolBinarioRecorrido arbolBinarioRecorrido = new ArbolBinarioRecorrido();
+        System.out.println("PreOrder Iterativo");
+        arbolBinarioRecorrido.preOrderIterativo(root);
+
+        System.out.println("\nPreOrderRecursivo");
+        arbolBinarioRecorrido.preOrderRecursivo(root);
+
+        System.out.println("\nPosOrder");
+        arbolBinarioRecorrido.posOrderRecursivo(root);
         
-        // System.out.println("\nInOrder");
-        // arbolBinarioRecorrido.inOrderRecursivo(root);
-
-        runEjercicio3();
+        System.out.println("\nInOrder");
+        arbolBinarioRecorrido.inOrderRecursivo(root);
 
     }
 
@@ -46,5 +52,18 @@ public class App {
         Node root = arbolBinario.getRoot();
 
         niveles.listLevel(root);
+    }
+
+    public static void runArbolAVL(){
+        ArbolAVL arbolAVL = new ArbolAVL();
+        int[] valores = {10, 20, 15, 24, 9, 8, 21, 23, 50, 25};
+        for (int i : valores) {
+            arbolAVL.insert(i);
+            System.out.println("Árbol AVL después de insertar " + valores + ":");
+
+            arbolAVL.printTree();
+        }
+        
+        
     }
 }
