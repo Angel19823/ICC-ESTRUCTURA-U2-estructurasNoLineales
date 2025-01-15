@@ -1,28 +1,28 @@
-package main.Materia.Controllers;
+package main.Ejercicio_02_invert;
 
 import main.Materia.Models.Node;
 
-public class ArbolBinario {
-
+public class InvertBinaryTree {
     private Node root;
-
-    public void insert(int value){
-        root = insert(root, value);
+        public void invert(int value){
+        root = invert(root, value);
     }
 
-    private Node insert(Node node, int value){
-        if(node == null)
-            return new Node(value);
-        
-        if(value < node.getValue()){
-            node.setLeft(insert(node.getLeft(), value));
+    private Node invert(Node nodo, int value ){
+        if(nodo==null){
+            Node newNode = new Node(value);
+            newNode.setHeight(1);
+            return newNode;
         }
 
-        if(value > node.getValue()){
-            node.setRight(insert(node.getRight(), value));
+        if(value < nodo.getValue()){
+            nodo.setLeft(invert(nodo.getLeft(), value));
+        }else if(value > nodo.getValue()){
+            nodo.setRight(invert(nodo.getRight(), value));
+        }else{
+            return nodo;
         }
-
-        return node;
+        return nodo;
     }
 
     public void printTree(){
@@ -45,9 +45,5 @@ public class ArbolBinario {
                 }
             }
         }
-    }
-
-    public Node getRoot(){
-        return root;
     }
 }
