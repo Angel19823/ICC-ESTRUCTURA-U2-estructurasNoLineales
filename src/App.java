@@ -8,16 +8,19 @@ import main.Ejercicio_04_depth.Depth;
 import main.Materia.Controllers.ArbolAVL;
 import main.Materia.Controllers.ArbolBinario;
 import main.Materia.Controllers.ArbolBinarioRecorrido;
+import main.Materia.Controllers.Graph;
 import main.Materia.Models.Node;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        runEjercicio04();
-        runEjercicio02();
-        runEjercicio3();
+        
+        runGraph();
+        //runEjercicio04();
+        // runEjercicio02();
+        // runEjercicio3();
         // runArbolAVL();
         // runArbol();
-        runEjercicio01();
+        // runEjercicio01();
 
     }
 
@@ -119,5 +122,17 @@ public class App {
 
         int maxDepth = depth.nivel(arbol.getRoot());
         System.out.println("La profundidades: " + maxDepth);
+    }
+
+    private static void runGraph(){
+        Graph grafo = new Graph();
+        grafo.addNode(5);
+        grafo.addNode(7);
+        grafo.addNode(9);
+        grafo.addNode(11);
+        grafo.addNode(3);
+
+        grafo.printGraph();
+        //grafo.addEdge();
     }
 }
