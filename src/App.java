@@ -10,11 +10,13 @@ import main.Materia.Controllers.ArbolBinario;
 import main.Materia.Controllers.ArbolBinarioRecorrido;
 import main.Materia.Controllers.Graph;
 import main.Materia.Models.Node;
+import main.Materia.Models.Node2;
 
 public class App {
     public static void main(String[] args) throws Exception {
         
-        runGraph();
+        runGraphEjer();
+        //runGraph();
         //runEjercicio04();
         // runEjercicio02();
         // runEjercicio3();
@@ -126,13 +128,48 @@ public class App {
 
     private static void runGraph(){
         Graph grafo = new Graph();
-        grafo.addNode(5);
-        grafo.addNode(7);
-        grafo.addNode(9);
-        grafo.addNode(11);
-        grafo.addNode(3);
+        Node2 node0 = grafo.addNode(0);	
+        Node2 node1 = grafo.addNode(1);	
+        Node2 node2 = grafo.addNode(2);	
+        Node2 node3 = grafo.addNode(3);	
+        Node2 node4 = grafo.addNode(4);	
+        Node2 node5 = grafo.addNode(5);	
+
+        grafo.addEdge(node0, node3);
+        grafo.addEdge(node0, node5);
+        grafo.addEdge(node3, node2);
+        grafo.addEdge(node3, node4);
+        grafo.addEdge(node2, node1);
+        grafo.addEdge(node4, node1);
+        grafo.addEdge(node1, node0);
+
+        System.out.println("Grafo dirigido:");
 
         grafo.printGraph();
-        //grafo.addEdge();
+        grafo.getDFS(node0);
+        grafo.getBFS(node0);
+    }
+    private static void runGraphEjer(){
+        Graph grafo = new Graph();
+        Node2 node0 = grafo.addNode(0);	
+        Node2 node1 = grafo.addNode(1);	
+        Node2 node2 = grafo.addNode(2);	
+        Node2 node3 = grafo.addNode(3);	
+        Node2 node4 = grafo.addNode(4);	
+        Node2 node5 = grafo.addNode(5);	
+
+        grafo.addEdge(node0, node3);
+        grafo.addEdge(node0, node5);
+        grafo.addEdge(node3, node2);
+        grafo.addEdge(node3, node4);
+        grafo.addEdge(node2, node1);
+        grafo.addEdge(node4, node1);
+        grafo.addEdge(node1, node0);
+
+        System.out.println("Grafo dirigido:");
+
+        grafo.printGraph();
+        //grafo.getDFS(node0);
+        grafo.getBFS(node0);
     }
 }
